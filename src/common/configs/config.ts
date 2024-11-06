@@ -19,5 +19,9 @@ export default {
     redis: {
         url: process.env.REDIS_URL || '<REDIS_URL>',
         prefix: process.env.REDIS_PREFIX || '<REDIS_PREFIX>'
+    },
+    admin: {
+        email: process.env.ADMIN_EMAIL || '<ADMIN_EMAIL>',
+        password: process.env.ADMIN_PASSWORD || '<ADMIN_PASSWORD>'
     }
 }

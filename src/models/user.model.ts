@@ -1,4 +1,4 @@
-import { DataTypes, Model, InferAttributes, InferCreationAttributes } from "sequelize";
+import { DataTypes, Model } from "sequelize";
 import db from "../../db/connection";
 
 interface UserAttributes {
@@ -34,9 +34,8 @@ UserModel.init({
     allowNull: false,
   },
   email: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(255),
     allowNull: false,
-    unique: true,
   },
   password: {
     type: DataTypes.STRING,
