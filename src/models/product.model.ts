@@ -7,6 +7,7 @@ interface IProduct {
   name: string;
   description: string;
   price: number;
+  quantity_in_stock?: number;
   thumbnail: string;
   image_urls: string[];
   category_id: string;
@@ -17,6 +18,7 @@ class ProductModel extends Model<IProduct> implements IProduct {
   public name!: string;
   public description!: string;
   public price!: number;
+  public quantity_in_stock?: number;
   public thumbnail!: string;
   public image_urls!: string[];
   public category_id!: string;
@@ -40,6 +42,11 @@ ProductModel.init(
     price: {
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
+    },
+    quantity_in_stock: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0, // Mặc định số lượng tồn kho là {0
     },
     thumbnail: {
       type: DataTypes.STRING,

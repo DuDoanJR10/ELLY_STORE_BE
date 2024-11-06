@@ -5,3 +5,7 @@ declare module "express" {
     user?: any;
   }
 }
+
+export interface CustomRequest extends Request {
+  user?: any;
+}

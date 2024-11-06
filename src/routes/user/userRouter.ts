@@ -6,6 +6,7 @@ import {
   userVerifyEmailValidationRules,
 } from "../../middlewares/userValidate.middleware";
 import { validate } from "../../middlewares/validate.middleware";
+import { verifyTokenUser } from "../../middlewares/verifyToken.middleware";
 
 const router = Router();
 
@@ -27,5 +28,6 @@ router.post(
   validate,
   userController.verifyEmail
 );
+router.get("/me", verifyTokenUser, userController.getMe);
 
 export default router;

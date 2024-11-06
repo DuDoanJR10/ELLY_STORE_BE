@@ -7,6 +7,8 @@ import SeederService from "./services/seeder.service";
 import CategoryModel from "./models/category.model";
 import ProductModel from "./models/product.model";
 import ProductAttributeModel from "./models/productAttribute.model";
+import swaggerUi from "swagger-ui-express";
+import specs from "./common/configs/swagger_output.json";
 
 class Server {
   private app: Application;
@@ -32,7 +34,7 @@ class Server {
       });
 
       // Define relationships product has many product attributes
-      ProductModel.hasMany(ProductModel, {
+      ProductModel.hasMany(ProductAttributeModel, {
         foreignKey: "product_id",
         as: "product_attributes",
       })
@@ -59,6 +61,9 @@ class Server {
     this.app.use(cors());
     this.app.use(express.json());
     this.app.use(express.static("public"));
+
+    // Swagger
+    this.app.use("/docs", swaggerUi.serve, swaggerUi.setup(specs));
   }
 
   routes() {
@@ -70,6 +75,7 @@ class Server {
       console.log(
         `Server up and running at port: http://localhost:${config.port}`
       );
+      console.log(`Swagger documentation available at http://localhost:${config.port}/docs`);
     });
   }
 }

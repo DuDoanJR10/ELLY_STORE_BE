@@ -3,10 +3,7 @@ import tokenService from '../services/token.service';
 import { TokenTypes } from '../common/constants/token.constant';
 import { RoleTypes } from '../common/constants/role.constant';
 import { ApiResponse } from '../types/ApiResponse';
-
-interface CustomRequest extends Request {
-  user?: any;
-}
+import { CustomRequest } from '../types/express';
 
 export const verifyTokenUser = async (req: CustomRequest, res: Response, next: NextFunction) => {
   const tokenBearer = req.header('Authorization');

@@ -1,5 +1,5 @@
 {
   "watch": ["*.ts"],
   "ext": "ts",
-  "exec": "ts-node app.ts"
+  "exec": "ts-node src/swagger.ts && ts-node app.ts"
 }
