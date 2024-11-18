@@ -1,0 +1,3 @@
+- Get detail product => quantity product attr - redis (khi có order save redis)
+- Add to cart check product attr - redis (khi có order save redis)
+- Order thì phải order qua cart hay có buy now ?

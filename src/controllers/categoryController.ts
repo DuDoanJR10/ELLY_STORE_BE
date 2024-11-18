@@ -14,7 +14,7 @@ class CategoryController {
     }
   }
 
-  public async getAdmin(req: Request, res: Response) {
+  public async getListAll(req: Request, res: Response) {
     try {
       const categories = await CategoryModel.findAll();
 

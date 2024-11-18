@@ -24,6 +24,6 @@ router.put(
 
 router.delete("/:id", verifyTokenAdmin, categoryController.deleteAdmin);
 
-router.get("/", verifyTokenAdmin, categoryController.getAdmin);
+router.get("/", verifyTokenAdmin, categoryController.getListAll);
 
 export default router;
